@@ -4,7 +4,7 @@
 # Question 3
 rm(list=ls())
 
-setwd("C:/Users/milosma/OneDrive/Documents/MSc in Data Analytics/Year 2 - Semester 2/STAT40740 - Multivariate Analysis/Assignment 01")
+setwd("Assignment01")
 
 # Read and investigate the data
 pima <- read.csv("Pima.csv")

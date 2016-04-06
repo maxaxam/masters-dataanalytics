@@ -2,7 +2,7 @@
 # Student Number: 14205449
 
 # Question 2
-setwd("C:/Users/milosma/OneDrive/Documents/MSc in Data Analytics/Year 2 - Semester 2/STAT40740 - Multivariate Analysis/Assignment 01")
+setwd("Assignment01")
 
 # Read the data
 potteryData <- read.csv("PotteryData.csv")

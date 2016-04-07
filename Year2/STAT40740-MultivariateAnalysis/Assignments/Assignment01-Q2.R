@@ -32,7 +32,7 @@ plotWGSS <- function(data, K, seed = 123) {
   }
   
   # Plot the WGSS graph
-  plot(1:10, WGSS, type = "b", main = " Within group sum of squares for different k values", xlab = "k", ylab = "Within group sum of squares", col = "blue")
+  plot(1:K, WGSS, type = "b", main = " Within group sum of squares for different k values", xlab = "k", ylab = "Within group sum of squares", col = "blue")
   return(WGSS)
 }
 

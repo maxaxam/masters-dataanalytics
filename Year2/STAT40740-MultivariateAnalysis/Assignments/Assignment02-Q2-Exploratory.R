@@ -77,3 +77,7 @@ plot(votes.cat)
 
 counts <- table(votes)
 plot(counts)
+
+adjRand <- adjustedRandIndex(votes.hclust.average.hcl, votes.lc$predclass)
+adjRand
+table(votes.hclust.average.hcl, votes.lc$predclass)

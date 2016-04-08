@@ -12,6 +12,8 @@ library(klaR)
 library(cluster)
 library(fpc)
 library(poLCA)
+library(mclust)
+library(e1071)
 
 # (a)
 
@@ -29,21 +31,21 @@ votes.tab.Trade <- table(votes$Trade)
 
 votes.tab.Combined <- cbind(votes.tab.ED1, votes.tab.ED2, votes.tab.Credit, votes.tab.Confidence1, votes.tab.Confidence2, votes.tab.Trade)
 colnames(votes.tab.Combined) <- c("ED1", "ED2", "Credit", "Confidence1", "Confidence2", "Trade")
-barplot(votes.tab.Combined, legend = rownames(votes.tab.Combined), axes = FALSE)
+barplot(votes.tab.Combined, legend = c("Absent", "Present"), axes = FALSE)
 axis(2,at=seq(0,180,20))
 
 votes.binary <- votes-1 # Adjust values to 0 and 1 so binary (Jaccard) measure can be used
 
 votes.binary.dist <- dist(votes.binary, method="binary")
 
-# Function for plotting Within sum of squares for different K values, returns WGSS vector
+# Function for plotting within-cluster simple-matching distance for different K values
 plotWithinDiff <- function(data, K, seed = 123) {
   # Setting seed to the same value so we can reproduce results
   set.seed(seed)
   withindiffs <- rep(0,K)
   # Find withindiff for different values of k
   for (k in 1:K) {
-    withindiffs[k] <- sum(kmodes(votes, k)$withindiff)
+    withindiffs[k] <- sum(kmodes(data, k)$withindiff)
   }
   
   # Plot the withindiff graph
@@ -53,8 +55,13 @@ plotWithinDiff <- function(data, K, seed = 123) {
 
 plotWithinDiff(votes, 10, 100) #123 (9) or 100 (7)
 
+votes.kmodes7 <- kmodes(votes, 7)
+
+table(votes.kmodes7$cluster)
+
 # Function for plotting silhouette coefficients average width for different K values
 # To be used for choosing k (number of clusters) for pam
+# This is using k-medoids approach
 plotSilhouetteCoefficient <- function(dist, K) {
   # Not seed dependant
   # set.seed(seed)
@@ -72,7 +79,7 @@ plotSilhouetteCoefficient <- function(dist, K) {
 
 plotSilhouetteCoefficient(votes.binary.dist, 10)
 
-fitpam<-pam(votes.binary.dist,k=7)
+votes.pam<-pam(votes.binary.dist,k=7)
 
 votes.hclust.average <- hclust(votes.binary.dist, method = "average")
 plot(votes.hclust.average)
@@ -118,8 +125,8 @@ poLCAplotGoodnessOfFit <- function(f, data, K, nrep, maxiter) {
   par(mfrow=c(2, 2))
   plot(2:K, goodFit.bic[2:K], type = "b", main = "BIC for different k values", xlab = "k", ylab = "BIC", col = "blue")
   plot(2:K, goodFit.aic[2:K], type = "b", main = "AIC for different k values", xlab = "k", ylab = "AIC", col = "red")
-  plot(2:K, goodFit.Gsq[2:K], type = "b", main = "Likelihood ratio for different k values", xlab = "Gsq", ylab = "BIC", col = "green")
-  plot(2:K, goodFit.Chisq[2:K], type = "b", main = "Pearson Chi-square for different k values", xlab = "Chisq", ylab = "BIC", col = "purple")
+  plot(2:K, goodFit.Gsq[2:K], type = "b", main = "Likelihood ratio for different k values", xlab = "k", ylab = "Gsq", col = "green")
+  plot(2:K, goodFit.Chisq[2:K], type = "b", main = "Pearson Chi-square for different k values", xlab = "k", ylab = "Chisq", col = "purple")
   par(mfrow=c(1, 1))
   goodFit <- rbind(goodFit.bic, goodFit.aic, goodFit.Gsq, goodFit.Chisq)
   rownames(goodFit) <- c("bic", "aic", "Gsq", "Chisq")
@@ -133,6 +140,39 @@ nrep <- 10
 maxiter <- 3000
 poLCAplotGoodnessOfFit(f, data = votes, 10, nrep, maxiter)
 
+set.seed(123)
 # Choosing nclass = 4 as that is when both BIC and AIC are smallest 
 # and Gsq and Chisq also start stabilizing (elbow is created)
-poLCA(f, votes, nclass = 4, nrep = nrep, maxiter = maxiter, graphs = TRUE)
+votes.lc <- poLCA(f, votes, nclass = 4, nrep = nrep, maxiter = maxiter, graphs = TRUE)
+
+table(votes.lc$predclass)
+
+# (c)
+
+# Function for calculating adjusted rand index and printing table for comparing two clustering alghorithms
+adjustedRandClusterCompare <- function(clustResult1, clustResult2) {
+  # Calculate and print Adjusted Rand Index
+  adjRand <- adjustedRandIndex(clustResult1, clustResult2)
+  print(paste0("Adjusted Rand =", adjRand))
+  print ("Contingency table")
+  print(table(clustResult1, clustResult2))
+}
+
+# Calculate Adjusted Rand Index and Contingency table between LCA and rest of the classifications
+adjustedRandClusterCompare(votes.hclust.average.hcl, votes.lc$predclass)
+adjustedRandClusterCompare(votes.hclust.single.hcl, votes.lc$predclass)
+adjustedRandClusterCompare(votes.hclust.complete.hcl, votes.lc$predclass)
+adjustedRandClusterCompare(votes.kmodes7$cluster, votes.lc$predclass)
+adjustedRandClusterCompare(votes.pam$clustering, votes.lc$predclass)
+
+# (d)
+
+# Load party membership
+load("PartyMembership.Rdata")
+
+# Create a new data frame that merges voting record with clustering results and party membership
+votes.lc.cluster <- cbind(votes, votes.lc$predclass)
+names(votes.lc.cluster)[7] <- "Cluster"
+votes.lc.clusterparty <- cbind(members.party, votes.lc.cluster)
+
+table(votes.lc.clusterparty$Party, votes.lc.clusterparty$Cluster)

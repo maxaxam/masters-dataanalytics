@@ -12,7 +12,7 @@ inv.gamma.int <- function(n, k, lambda) {
 # 1 Modify the code to create a sample of size 2000 
 #   from the Ga(3, 0.5) distribution
 
-y <- inv.gamma.int(2000, 3, 0.5)
+y <- inv.gamma.int(2000, 3, 0.5)       # Calling method of inversion for sample of size 2000 and for Ga(3,0.5) distribution
 
 # 2 Plot a histogram and compare it to the density of Ga(3, 0.5)
 
@@ -27,8 +27,11 @@ lines(t, dgamma(t, shape = 3, rate = 0.5), lwd = 2)
 ks.test(y, pgamma, 3, 0.5)
 
 # 4 Rejection sampling for Ga(3.5, 3) distribution.
+
+# Set alpha and lambda
 alpha <- 3.5
 lambda <- 3
+
 
 rejection.gamma <- function(n, alpha, lambda) {
   k <- floor(alpha)
@@ -49,42 +52,51 @@ rejection.gamma <- function(n, alpha, lambda) {
   for (i in 1:n) {
     t <- -1
     while (t < 0) {
+      # Count total number of tries
       total <- total + 1
-      # X~h(x)
+      # X~h(x) - get X using method of inversion from Ga(floor(alpha), lambda-1)
       x <- inv.gamma.int(1, k = k, lambda = lambda - 1)
       rx[total] <- x
       ry[total] <- y
+      # Get Y from U(0,1)*Ga(floor(alpha), lambda-1)
       y <- runif(1, 0, M*dgamma(x, shape = k, rate = lambda-1))
+      # Calculate difference between value from Ga(alpha, lambda) for value X and Y
       t <- dgamma(x, shape = alpha, rate = lambda) - y
     }
     
+    # Save x
     r[i] <- x
   }
+  
+  # Return the list of interesting values for this rejection sampling
   return(list(
     n = n,
     alpha = alpha,
     lambda = lambda,
     k = k,
     M = M,
-    sample = r,
-    allX = rx,
-    allY = ry,
-    totalSamples = total,
-    acceptedSamples = length(r),
-    rejectedSamples = total - length(r),
-    proportionalAcceptedSamples = length(r) / total))
+    sample = r, # accepted values of x
+    allX = rx, # all sampled x
+    allY = ry, # all sampled y
+    totalSamples = total,  # total number of generated samples
+    acceptedSamples = length(r), # total number of accepted samples
+    rejectedSamples = total - length(r), # total number of rejected samples
+    proportionalAcceptedSamples = length(r) / total)) # proportion of accepted samples
 }
 
 res <- rejection.gamma(2000, alpha, lambda)
 
 # Plot a histogram
-hist(res$sample, freq = FALSE, xlim = c(0, 6), ylim = c(0,0.8))
+hist(res$sample, freq = FALSE, xlim = c(0, 6), ylim = c(0,0.8), main = "Histogram of sampled values", xlab = "t", ylab = "density")
 # Create a sequence
 t <- 0:60 / 10
 lines(t, dgamma(t, shape = alpha, rate = lambda), col = 'blue', lwd = 2)
 lines(density(res$sample), col = 'red', lwd = 2, lty = 2)
 
-res$proportionalAcceptedSamples
-
 # Kolmogorov-Smirnov test to check output
 ks.test(res$sample, pgamma, alpha, lambda)
+
+res$totalSamples
+res$proportionalAcceptedSamples
+res$M
+1/res$M

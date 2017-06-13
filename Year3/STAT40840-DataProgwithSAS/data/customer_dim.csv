@@ -1,0 +1,78 @@
+Customer_ID,Customer_Country,Customer_Gender,Customer_Name,Customer_FirstName,Customer_LastName,Customer_BirthDate,Customer_Age_Group,Customer_Type,Customer_Group,Customer_Age
+4,US,M,James Kvarniq,James,Kvarniq,27JUN1978,31-45 years,Orion Club members low activity,Orion Club members,33
+5,US,F,Sandrina Stephano,Sandrina,Stephano,09JUL1983,15-30 years,Orion Club Gold members medium activity,Orion Club Gold members,28
+9,DE,F,Cornelia Krahl,Cornelia,Krahl,27FEB1978,31-45 years,Orion Club Gold members medium activity,Orion Club Gold members,33
+10,US,F,Karen Ballinger,Karen,Ballinger,18OCT1988,15-30 years,Orion  Club members high activity,Orion Club members,23
+11,DE,F,Elke Wallstab,Elke,Wallstab,16AUG1978,31-45 years,Orion  Club members high activity,Orion Club members,33
+12,US,M,David Black,David,Black,12APR1973,31-45 years,Orion  Club members medium activity,Orion Club members,38
+13,DE,M,Markus Sepke,Markus,Sepke,21JUL1992,15-30 years,Orion Club Gold members low activity,Orion Club Gold members,19
+16,DE,M,Ulrich Heyde,Ulrich,Heyde,16JAN1943,61-75 years,Internet/Catalog Customers,Internet/Catalog Customers,68
+17,US,M,Jimmie Evans,Jimmie,Evans,17AUG1958,46-60 years,Orion  Club members medium activity,Orion Club members,53
+18,US,M,Tonie Asmussen,Tonie,Asmussen,02FEB1958,46-60 years,Orion Club members low activity,Orion Club members,53
+19,DE,M,Oliver S. Füßling,Oliver S.,Füßling,23FEB1968,31-45 years,Orion Club Gold members high activity,Orion Club Gold members,43
+20,US,M,Michael Dineley,Michael,Dineley,17APR1963,46-60 years,Orion  Club members medium activity,Orion Club members,48
+23,US,M,Tulio Devereaux,Tulio,Devereaux,02DEC1953,46-60 years,Internet/Catalog Customers,Internet/Catalog Customers,58
+24,US,F,Robyn Klem,Robyn,Klem,02JUN1963,46-60 years,Internet/Catalog Customers,Internet/Catalog Customers,48
+27,US,F,Cynthia Mccluney,Cynthia,Mccluney,15APR1973,31-45 years,Internet/Catalog Customers,Internet/Catalog Customers,38
+29,AU,F,Candy Kinsey,Candy,Kinsey,08JUL1938,61-75 years,Internet/Catalog Customers,Internet/Catalog Customers,73
+31,US,F,Cynthia Martinez,Cynthia,Martinez,07AUG1963,46-60 years,Orion Club Gold members medium activity,Orion Club Gold members,48
+33,DE,M,Rolf Robak,Rolf,Robak,24FEB1943,61-75 years,Orion  Club members medium activity,Orion Club members,68
+34,US,M,Alvan Goheen,Alvan,Goheen,18JAN1988,15-30 years,Orion Club members low activity,Orion Club members,23
+36,US,M,Phenix Hill,Phenix,Hill,02APR1968,31-45 years,Internet/Catalog Customers,Internet/Catalog Customers,43
+39,US,M,Alphone Greenwald,Alphone,Greenwald,25JUL1988,15-30 years,Orion Club Gold members high activity,Orion Club Gold members,23
+41,AU,M,Wendell Summersby,Wendell,Summersby,02DEC1968,31-45 years,Orion  Club members medium activity,Orion Club members,43
+42,DE,M,Thomas Leitmann,Thomas,Leitmann,09FEB1983,15-30 years,Orion Club members low activity,Orion Club members,28
+45,US,F,Dianne Patchin,Dianne,Patchin,06MAY1983,15-30 years,Orion Club Gold members low activity,Orion Club Gold members,28
+49,US,F,Annmarie Leveille,Annmarie,Leveille,16JUL1988,15-30 years,Orion Club Gold members high activity,Orion Club Gold members,23
+50,DE,M,Gert-Gunter Mendler,Gert-Gunter,Mendler,16JAN1938,61-75 years,Orion Club Gold members high activity,Orion Club Gold members,73
+52,US,M,Yan Kozlowski,Yan,Kozlowski,06APR1973,31-45 years,Orion  Club members medium activity,Orion Club members,38
+53,AU,F,Dericka Pockran,Dericka,Pockran,20JUN1958,46-60 years,Orion  Club members high activity,Orion Club members,53
+56,US,M,Roy Siferd,Roy,Siferd,01FEB1938,61-75 years,Orion  Club members medium activity,Orion Club members,73
+60,US,F,Tedi Lanzarone,Tedi,Lanzarone,23MAY1973,31-45 years,Orion  Club members medium activity,Orion Club members,38
+61,DE,M,Carsten Maestrini,Carsten,Maestrini,08JUL1948,61-75 years,Orion Club Gold members high activity,Orion Club Gold members,63
+63,US,M,James Klisurich,James,Klisurich,25DEC1973,31-45 years,Orion Club Gold members medium activity,Orion Club Gold members,38
+65,DE,F,Ines Deisser,Ines,Deisser,20JUL1973,31-45 years,Orion Club members low activity,Orion Club members,38
+69,US,F,Patricia Bertolozzi,Patricia,Bertolozzi,13MAY1983,15-30 years,Orion Club members low activity,Orion Club members,28
+71,US,F,Viola Folsom,Viola,Folsom,23SEP1973,31-45 years,Orion Club Gold members medium activity,Orion Club Gold members,38
+75,US,M,Mikel Spetz,Mikel,Spetz,18JUN1988,15-30 years,Orion Club members low activity,Orion Club members,23
+79,US,F,Najma Hicks,Najma,Hicks,22JAN1990,15-30 years,Orion  Club members medium activity,Orion Club members,21
+88,US,M,Attila Gibbs,Attila,Gibbs,19FEB1963,46-60 years,Orion  Club members medium activity,Orion Club members,48
+89,US,F,Wynella Lewis,Wynella,Lewis,28SEP1938,61-75 years,Orion  Club members high activity,Orion Club members,73
+90,US,F,Kyndal Hooks,Kyndal,Hooks,01AUG1968,31-45 years,Orion Club Gold members high activity,Orion Club Gold members,43
+92,US,M,Lendon Celii,Lendon,Celii,14SEP1948,61-75 years,Orion Club members low activity,Orion Club members,63
+111,AU,F,Karolina Dokter,Karolina,Dokter,28DEC1978,31-45 years,Orion  Club members medium activity,Orion Club members,33
+171,AU,M,Robert Bowerman,Robert,Bowerman,22FEB1978,31-45 years,Orion  Club members high activity,Orion Club members,33
+183,AU,M,Duncan Robertshawe,Duncan,Robertshawe,25MAR1948,61-75 years,Orion Club members low activity,Orion Club members,63
+195,AU,M,Cosi Rimmington,Cosi,Rimmington,11NOV1948,61-75 years,Orion Club members low activity,Orion Club members,63
+215,AU,M,Ramesh Trentholme,Ramesh,Trentholme,16MAY1953,46-60 years,Orion Club Gold members medium activity,Orion Club Gold members,58
+544,TR,M,Avni Argac,Avni,Argac,20MAY1968,31-45 years,Orion  Club members high activity,Orion Club members,43
+908,TR,M,Avni Umran,Avni,Umran,06DEC1983,15-30 years,Orion Club Gold members high activity,Orion Club Gold members,28
+928,TR,M,Bulent Urfalioglu,Bulent,Urfalioglu,11AUG1973,31-45 years,Orion Club members low activity,Orion Club members,38
+1033,TR,M,Selim Okay,Selim,Okay,14OCT1983,15-30 years,Orion Club members low activity,Orion Club members,28
+1100,TR,M,Ahmet Canko,Ahmet,Canko,19JAN1968,31-45 years,Orion Club members low activity,Orion Club members,43
+1684,TR,M,Carglar Aydemir,Carglar,Aydemir,17OCT1978,31-45 years,Orion Club members low activity,Orion Club members,33
+2550,ZA,F,Sanelisiwe Collier,Sanelisiwe,Collier,07JUL1992,15-30 years,Orion Club Gold members low activity,Orion Club Gold members,19
+2618,ZA,M,Theunis Brazier,Theunis,Brazier,21MAR1953,46-60 years,Orion  Club members medium activity,Orion Club members,58
+2788,TR,M,Serdar Yucel,Serdar,Yucel,02JAN1948,61-75 years,Orion  Club members high activity,Orion Club members,63
+2806,ZA,F,Raedene Van Den Berg,Raedene,Van Den Berg,16SEP1992,15-30 years,Orion  Club members medium activity,Orion Club members,19
+3959,ZA,F,Rita Lotz,Rita,Lotz,24FEB1968,31-45 years,Orion Club Gold members high activity,Orion Club Gold members,43
+11171,CA,M,Bill Cuddy,Bill,Cuddy,16OCT1990,15-30 years,Orion Club Gold members low activity,Orion Club Gold members,21
+12386,IL,M,Avinoam Zweig,Avinoam,Zweig,12MAY1963,46-60 years,Internet/Catalog Customers,Internet/Catalog Customers,48
+14104,IL,M,Avinoam Zweig,Avinoam,Zweig,10OCT1968,31-45 years,Orion  Club members medium activity,Orion Club members,43
+14703,IL,M,Eyal Bloch,Eyal,Bloch,24SEP1973,31-45 years,Orion  Club members high activity,Orion Club members,38
+17023,CA,F,Susan Krasowski,Susan,Krasowski,09JUL1963,46-60 years,Orion Club Gold members high activity,Orion Club Gold members,48
+19444,IL,M,Avinoam Zweig,Avinoam,Zweig,28SEP1963,46-60 years,Orion  Club members high activity,Orion Club members,48
+19873,IL,M,Avinoam Tuvia,Avinoam,Tuvia,14JUN1988,15-30 years,Orion Club Gold members high activity,Orion Club Gold members,23
+26148,CA,M,Andreas Rennie,Andreas,Rennie,18JUL1938,61-75 years,Orion  Club members medium activity,Orion Club members,73
+46966,CA,F,Lauren Krasowski,Lauren,Krasowski,24OCT1990,15-30 years,Orion  Club members high activity,Orion Club members,21
+54655,CA,F,Lauren Marx,Lauren,Marx,18AUG1973,31-45 years,Internet/Catalog Customers,Internet/Catalog Customers,38
+70046,CA,M,Tommy Mcdonald,Tommy,Mcdonald,20JAN1963,46-60 years,Orion Club members low activity,Orion Club members,48
+70059,CA,M,Colin Byarley,Colin,Byarley,20JAN1938,61-75 years,Orion  Club members medium activity,Orion Club members,73
+70079,CA,F,Lera Knott,Lera,Knott,11JUL1990,15-30 years,Orion  Club members medium activity,Orion Club members,21
+70100,CA,F,Wilma Yeargan,Wilma,Yeargan,23JUN1988,15-30 years,Orion  Club members medium activity,Orion Club members,23
+70108,CA,M,Patrick Leach,Patrick,Leach,14APR1943,61-75 years,Orion Club members low activity,Orion Club members,68
+70165,CA,F,Portia Reynoso,Portia,Reynoso,11FEB1968,31-45 years,Orion Club members low activity,Orion Club members,43
+70187,CA,F,Soberina Berent,Soberina,Berent,27SEP1990,15-30 years,Orion  Club members medium activity,Orion Club members,21
+70201,CA,F,Angel Borwick,Angel,Borwick,19DEC1973,31-45 years,Orion Club Gold members low activity,Orion Club Gold members,38
+70210,CA,M,Alex Santinello,Alex,Santinello,22APR1990,15-30 years,Orion  Club members medium activity,Orion Club members,21
+70221,CA,M,Kenan Talarr,Kenan,Talarr,10FEB1968,31-45 years,Orion  Club members high activity,Orion Club members,43

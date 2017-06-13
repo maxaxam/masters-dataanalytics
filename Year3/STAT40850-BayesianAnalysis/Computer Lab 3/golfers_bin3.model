@@ -1,0 +1,16 @@
+model{ 
+    for (i in 1:N){
+            Successes[i] ~ dbin(p[i], Tries[i])
+            logit(p[i]) <- alpha + beta1*(Distance[i]-mean(Distance[])) + beta2*pow(Distance[i]-mean(Distance[]),2) 
+    }
+    
+    alpha ~ dnorm(0, 0.0001)
+    beta1 ~ dnorm(0, 0.0001)
+    beta2 ~ dnorm(0, 0.0001)
+    p_temp5 <- alpha + beta1*(5-mean(Distance[])) + beta2*pow(5-mean(Distance[]),2)
+    p_temp10 <- alpha + beta1*(10-mean(Distance[])) + beta2*pow(10-mean(Distance[]),2)
+    p_temp30 <- alpha + beta1*(30-mean(Distance[])) + beta2*pow(30-mean(Distance[]),2)
+    y5 <- 1 / (1 + exp(-p_temp5))
+    y10 <- 1 / (1 + exp(-p_temp10))
+    y30 <- 1 / (1 + exp(-p_temp30))
+}

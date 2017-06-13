@@ -1,0 +1,16 @@
+data {
+ N_all<-length(x_all) 
+ N_new<-length(x_new) 
+}
+model {
+# Likelihoods
+  for(i in 1:N_all) {
+    x_all[i] ~ dpois(lambda[1])
+  }
+  for(i in 1:N_new) {
+    x_new[i] ~ dpois(lambda[2])
+  }
+# Priors
+  lambda[1] ~ dgamma(9,6)
+  lambda[2] ~ dgamma(24,12)
+}

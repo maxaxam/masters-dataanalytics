@@ -1,0 +1,24 @@
+data { # create 3 identical datasets to use with 3 different priors
+  for (j in 1:3) {
+    for(i in 1:N) {
+      x2[i,j] <- x[i]
+      # x2[1,]=x2[2,]=x and just replicates the data for us
+      }
+    }
+  }
+
+
+model
+{
+  # Likelihood
+  for(j in 1:3) { # loop over models
+    for(i in 1:N) {
+      x2[i,j] ~ dpois(lambda[j])
+
+    }
+  }
+  # Priors
+  lambda[1] ~ dgamma(alpha0, beta0)
+  lambda[2] ~ dunif(a0, b0)
+  lambda[3] ~ dgamma(alpha_jeffreys, beta_jeffreys) # need to use small value close to zero as approximateion as using zero fails for calculation
+}

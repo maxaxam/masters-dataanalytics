@@ -1,0 +1,10 @@
+model
+{
+    # the likelihood
+    x ~ dnorm(theta, tau) 
+    tau <- 1/phi # reminder that JAGS uses the precision; we'll reparameterise to variance as that's what we're more used to
+
+    # the prior 
+    theta ~ dnorm(theta0, tau0)
+    tau0 <- 1/phi0  # again, precision=1/variance
+}

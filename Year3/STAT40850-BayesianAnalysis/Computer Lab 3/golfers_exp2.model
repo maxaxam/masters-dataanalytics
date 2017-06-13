@@ -1,0 +1,14 @@
+model{ 
+    for (i in 1:N){
+            ProportionSuccess[i] ~ dexp(g[i])
+            g_inv[i] <- alpha + beta*(Distance[i])
+            g[i] <- 1/g_inv[i]
+    }
+
+    alpha ~ dunif(0, 1000)
+    beta ~ dunif(0, 1000)
+    
+    y5 <- (alpha + beta*5)
+    y10 <- (alpha + beta*10)
+    y30 <- (alpha + beta*30)
+}

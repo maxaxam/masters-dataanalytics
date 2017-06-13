@@ -1,0 +1,11 @@
+model{ 
+	for (i in 1:N){
+			Successes[i] ~ dbin(p[i], Tries[i])
+			p_logit[i] <- alpha + beta*(Distance[i]-mean(Distance[]))
+			p[i] <- 1 / (1 + exp(-p_logit[i]))
+	}
+	
+	alpha ~ dunif(-100,100)
+	beta ~ dunif(-100,100)
+	#ystar <- exp(alpha+beta*(1963-mean(Year[])))
+}

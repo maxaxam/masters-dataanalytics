@@ -1,0 +1,12 @@
+model{ 
+  for (i in 1:N){
+      Disasters[i] ~ dpois(m[i])
+      # step is a useful function in JAGS that returns 0 if the argument is negative and 1 if 0 or positive
+      m[i] = lambda*step(k-i)+gamma*step(i-k-1) # takes the value lambda for i<=k and gamma for i>k
+  }
+  # priors the same for the two rates parameters
+  lambda ~ dexp(1)
+  gamma ~ dexp(1)
+  k=k1+1 # to shift to correct interval
+  k1 ~ dcat(rep(1,N-2))
+}

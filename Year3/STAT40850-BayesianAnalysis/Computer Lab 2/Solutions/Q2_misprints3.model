@@ -1,0 +1,22 @@
+data { # create 3 identical datasets to use with 3 different priors
+  for (j in 1:3) { # loop over models
+    for(i in 1:N) {
+      x3[i,j] <- x[i]
+      }
+  }
+}
+model {
+# Likelihood
+  for (j in 1:3) { # loop over models
+    for(i in 1:N) {
+      x3[i,j] ~ dpois(lambda[j])
+    }
+  }
+
+# Priors
+  lambda[1] ~ dgamma(a,b)
+  lambda[2] ~ dunif(0,10)
+  lambda[3] ~ dgamma(0.5,1e-6)
+}
+
+

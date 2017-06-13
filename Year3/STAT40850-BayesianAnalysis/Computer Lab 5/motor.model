@@ -1,0 +1,15 @@
+model{ 
+  for (t in 1:N){
+    accel[t] ~ dnorm(X[t, ] %*% b[,t], tau)
+    for (k in 1:K) {
+      b[k,t] ~ dnorm(0, lambda)
+    }
+  }
+  
+  tau ~ dgamma(0.001, 0.001)
+  lambda ~ dgamma(0.001, 0.001)
+  
+  for(t in 1:N) {
+		accelstar[t] ~ dnorm(X[t, ] %*% b[,t], tau)
+	}
+}

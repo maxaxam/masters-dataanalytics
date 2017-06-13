@@ -1,0 +1,14 @@
+model{ 
+    for (i in 1:N){
+            Successes[i] ~ dbin(p[i], Tries[i])
+            logit(p[i]) <- alpha
+    }
+    
+    alpha ~ dnorm(0, 0.0001)
+    p_temp5 <- alpha
+    p_temp10 <- alpha
+    p_temp30 <- alpha
+    y5 <- 1 / (1 + exp(-p_temp5))
+    y10 <- 1 / (1 + exp(-p_temp10))
+    y30 <- 1 / (1 + exp(-p_temp30))
+}

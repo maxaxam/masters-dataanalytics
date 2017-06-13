@@ -1,0 +1,7 @@
+model{ 
+	for (i in 1:N){
+			Disasters[i] ~ dpois(lambda[i])
+			log(lambda[i]) <- alpha
+	}
+	alpha ~ dunif(-100,100)
+}

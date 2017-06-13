@@ -1,0 +1,25 @@
+# Hepatitis - hierarchical model
+model{ 
+  for (i in 1:N){
+    for(j in 1:M) {
+      Y[i,j] ~ dnorm(mu[i,j], tau) # observations are normally distributed around some expected value
+	mu[i,j] = alpha[i] + beta[i]*(logt[j]-mean(logt[])) # the expected value is formed from a+b*log(t)
+    }
+    alpha[i] ~ dnorm(alpha0,taua) # hierarchical prior on alpha
+    beta[i] ~ dnorm(beta0,taub) # hierarchical prior on beta
+  }
+  alpha0 ~ dunif(-100,100) # uniform prior 
+  beta0 ~ dunif(-100,100) # uniform prior 
+  phia ~ dgamma(0.001,0.001) # Jeffrey's on variance
+  phib ~ dgamma(0.001,0.001) # Jeffrey's on variance
+  phi ~ dgamma(0.001,0.001) # Jeffrey's on variance
+  # mean of the alpha and beta values
+  ma=mean(alpha[]) 
+  mb=mean(beta[])
+  # now transformations from variances in precisions
+  taua = 1/phia
+  taub = 1/phib
+  tau = 1/phi
+}
+
+

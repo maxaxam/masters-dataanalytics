@@ -1,0 +1,12 @@
+#Linear regression 1
+model{ 
+	for (i in 1:N){
+			Y[i] ~ dnorm(mu[i], tau)
+			mu[i] <- alpha + beta1*(X[i]-mean(X[])) + beta2*(pow(X[i],2)-mean(pow(X[],2)))
+	}
+	alpha ~ dunif(-100,100)
+	beta1 ~ dunif(-100,100)
+	beta2 ~ dunif(-100,100)
+	tau ~ dgamma(0.5,1e-6)
+	sigma = sqrt(1/tau)
+}

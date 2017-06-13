@@ -1,0 +1,10 @@
+model{ 
+	for (i in 1:N){
+			ProportionSuccess[i] ~ dexp(g[i])
+			g_inv[i] <- alpha
+			g[i] <- (1/g_inv[i])
+	}
+	
+	alpha ~ dunif(0,100)
+	#ystar <- exp(alpha)
+}

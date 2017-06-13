@@ -1,0 +1,26 @@
+data { # create 2 identical datasets to use with 2 different priors
+  for (j in 1:2) {
+    for(i in 1:N) {
+      x2[i,j] <- x[i]
+      # x2[1,]=x2[2,]=x and just replicates the data for us
+      }
+    }
+  }
+
+model {
+# Likelihood
+  for(j in 1:2) { # loop over models
+    for(i in 1:N) {
+      x2[i,j] ~ dnorm(theta[j],phi.inv) # theta[1] has a normal prior and theta[2] has a flat prior 
+
+    }
+  }
+
+  phi.inv <- 1/phi
+
+# Prior
+    theta[1] ~ dnorm(theta0,phi0.inv)
+    phi0.inv <- 1/phi0
+    theta[2] ~ dunif(0,100)
+}
+

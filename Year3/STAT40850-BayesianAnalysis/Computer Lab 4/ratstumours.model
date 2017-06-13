@@ -1,0 +1,12 @@
+model {
+	# Likelihood
+	for(i in 1:M) {
+		y[i] ~ dbin(pi[i],n[i])
+		pi[i] ~ dbeta(alpha,beta)
+	}
+
+	alpha ~ dgamma(2,1)
+	beta ~ dgamma(2,1)
+}
+
+

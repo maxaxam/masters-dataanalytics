@@ -1,0 +1,18 @@
+model{ 
+  for (i in 1:Ndists){
+    Nsucc[i] ~ dbin(p[i],Ntrys[i])
+      logit(p[i]) <- alpha+ beta1*(dist[i]-mean(dist[]))+beta2*pow(dist[i]-mean(dist[]),2)+beta3*pow(dist[i]-mean(dist[]),3)+beta4*pow(dist[i]-mean(dist[]),4)
+  }
+    alpha ~ dunif(-10,10)
+    beta1 ~ dunif(-10,10)
+    beta2 ~ dunif(-10,10)
+    beta3 ~ dunif(-10,10)
+    beta4 ~ dunif(-10,10)
+
+    logitpstar5 <- alpha+ beta1*(5-mean(dist[]))+beta2*pow(5-mean(dist[]),2)+beta3*pow(5-mean(dist[]),3)+beta4*pow(5-mean(dist[]),4)
+    logitpstar10 <- alpha+ beta1*(10-mean(dist[]))+beta2*pow(10-mean(dist[]),2)+beta3*pow(10-mean(dist[]),3)+beta4*pow(10-mean(dist[]),4)
+    logitpstar30 <- alpha+ beta1*(30-mean(dist[]))+beta2*pow(30-mean(dist[]),2)+beta3*pow(30-mean(dist[]),3)+beta4*pow(30-mean(dist[]),4)
+    pstar5 <- exp(logitpstar5)/(1+exp(logitpstar5))
+    pstar10 <- exp(logitpstar10)/(1+exp(logitpstar10))
+    pstar30 <- exp(logitpstar30)/(1+exp(logitpstar30))
+}
